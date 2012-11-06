@@ -1,0 +1,11 @@
+;SCHEEEEME
+(define L1 (quote ()))
+(define L2 (quote (1 2 3 4)))
+(define L3 (quote (4 5 6 7)))
+(define L4 (quote (4)))
+
+(define (elim L1 L2)
+	#t)
+
+(define (eliminateNsort L1 L2)
+	(+ (car L1) (car L2)))
