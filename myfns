@@ -13,6 +13,8 @@
 (define (elim L1 L2)
 	(cond
 		((null? L2) L1)
+		((null? L1) '())
+		(#t (elim (delete (car L2) L1) (cdr L2)))
 	)
 )
 
@@ -51,5 +53,7 @@
 	)
 )
 
+;remove elements in L2 from L1, sort remaining elements
 (define (eliminateNsort L1 L2)
-	(+ (car L1) (car L2)))
+	(sort (elim L1 L2))
+)	
