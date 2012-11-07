@@ -1,18 +1,40 @@
-;SCHEEEEME
+;JACOB KLINGLER
+;klinglej
+;klingler.45@osu.edu
+;Programming Languages Scheme Lab
+
 (define L1 (quote ()))
 (define L2 (quote (1 2 3 4)))
 (define L3 (quote (4 5 6 7)))
 (define L4 (quote (9 8 7 6)))
 (define L5 (quote (4)))
 
+;remove all items in L2 from L1
 (define (elim L1 L2)
-	#t
+	(cond
+		((null? L2) L1)
+	)
 )
 
+;remove item X from list L
+(define (delete X L)
+	(cond 
+		((null? L) '())
+		((= X (car L)) (cdr L))
+		(#t (cons (car L) (delete X (cdr L))))
+	)
+)
+
+;return sorted list L
 (define (sort L)
-	L
+	(cond
+		((null? L) '())
+		((null? (cdr L)) L)
+		(#t (cons (min L) (sort (delete (min L) L)))) ;possible optimization - only compute min once?
+	)
 )
 
+;return the minimum element of a list L
 (define (min L)
 	(cond
 		((null? L) '())
@@ -21,6 +43,7 @@
 	)
 )
 
+;return the smaller of two elements
 (define (smaller X Y)
 	(cond
 		((< X Y) X)
